@@ -1,0 +1,268 @@
+---
+title: Mitglied werden
+header: images/join-us.jpg
+menu:
+  main:
+    parent: Verein
+---
+<h1>Mitglied werden</h1>
+<a href="https://gitlab.com/f3n/vorstand/organisation/raw/master/Dokumente/Formulare/Mitgliedsantrag_F3N.pdf?inline=false">Download Antrag</a>
+<div class="mitgliedsantrag message pending"><div><div class="loader"></div></div></div>
+<div class="mitgliedsantrag message success">
+  <h2>Dein Mitgliedsantrag wurde erfolgreich versendet!</h2>
+  Dein Antrag wird nun geprüft. Du erhältst in Kürze eine Nachricht und deine erste Beitragsrechnung.
+</div>
+<div class="mitgliedsantrag message error">
+  <h2>Ein Fehler ist aufgetreten!</h2>
+  Bitte versuche es erneut. Sollte dieser Fehler wieder auftreten, schreib uns bitte eine kurze Nachricht an <a href="mailto:vorstand@freifunk-aachen.de">vorstand@freifunk-aachen.de</a>.<br />
+  Gerne kannst du deine Angaben aus folgendem Textblock kopieren und der E-Mail beifügen, sodass wir deinen Mitgliedsantrag manuell verarbeiten. Du erhältst dann zeitnah eine Antwort.
+  <pre contenteditable></pre>
+</div>
+<form class="mitgliedsantrag">
+  <fieldset class="text">
+    <input id="firma" name="firma" type="text" placeholder="&nbsp;" />
+    <label for="firma">Firma</label>
+  </fieldset>
+  <div>
+    <fieldset class="text">
+      <input id="vorname" name="vorname" type="text" required placeholder="&nbsp;" />
+      <label for="vorname">Vorname</label>
+    </fieldset>
+    <fieldset class="text">
+      <input id="name" name="name" type="text" required placeholder="&nbsp;" />
+      <label for="name">Name</label>
+    </fieldset>
+  </div>
+  <div>
+    <fieldset class="text strasse">
+      <input id="strasse" name="strasse" type="text" required placeholder="&nbsp;" />
+      <label for="strasse">Straße</label>
+    </fieldset>
+    <fieldset class="text hausnr">
+      <input id="hausnr" name="hausnr" type="text" required placeholder="&nbsp;" />
+      <label for="hausnr">Hausnummer</label>
+    </fieldset>
+  </div>
+  <div>
+    <fieldset class="text plz">
+      <input id="plz" name="plz" type="text" required placeholder="&nbsp;" />
+      <label for="plz">Postleitzahl</label>
+    </fieldset>
+    <fieldset class="text ort">
+      <input id="ort" name="ort" type="text" required placeholder="&nbsp;" />
+      <label for="ort">Ort</label>
+    </fieldset>
+  </div>
+  <fieldset class="text">
+    <input id="email" name="email" type="email" required placeholder="&nbsp;" />
+    <label for="email">E-Mail</label>
+    <input name="email2" type="text" />
+  </fieldset>
+  <fieldset class="text">
+    <input id="gebdatum" name="gebdatum" type="date" required placeholder="&nbsp;" />
+    <label for="gebdatum">Geburtsdatum</label>
+  </fieldset>
+  <fieldset class="radio">
+    <input id="art_foerdernd" name="art" type="radio" value="fördernd" required /><label for="art_foerdernd">Fördernde&nbsp;Mitgliedschaft</label>
+    <input id="art_ordentlich" name="art" type="radio" value="ordentlich" required /><label for="art_ordentlich">Ordentliche&nbsp;Mitgliedschaft</label>
+  </fieldset>
+  <fieldset class="text beitrag">
+    <input id="beitrag" name="beitrag" type="number" list="beitragsklassen" autocomplete="off" min="1" pattern="\d+,\d{2}" step="0.01" required placeholder="&nbsp;" />
+    <label for="beitrag">Beitrag pro Monat</label>
+    <span class="unit">€</span>
+    <div class="options">
+      <div data-value="1" class="min"><span class="value">1 €</span><span class="description">Bronze-Mitgliedschaft</span></div>
+      <div data-value="5"><span class="value">5 €</span><span class="description">Silber-Mitgliedschaft</span></div>
+      <div data-value="15"><span class="value">15 €</span><span class="description">Gold-Mitgliedschaft</span></div>
+      <div data-value="45"><span class="value">45 €</span><span class="description">Platin-Mitgliedschaft</span></div>
+    </div>
+  </fieldset>
+  <p>
+    Der Mitgliedsbeitrag wird zu Beginn des Jahres für das gesamte Jahr eingefordert.
+    Bei Vereinseintritt ist der volle Mitgliedsbeitrag für das laufende Jahr sofort fällig.
+    Bei Vereinseintritt nach dem 30.&nbsp;Juni wird der Mitgliedsbeitrag fördernder Mitglieder im ersten Jahr um 50&nbsp;% reduziert.
+    Es gilt die <a href="https://gitlab.com/f3n/vorstand/organisation/-/blob/master/Dokumente/Gesch%C3%A4ftsordnungen/beitragsordnung" target="_blank">Beitragsordnung</a>.
+  </p>
+  <p>
+    Ich habe die <a href="https://gitlab.com/f3n/vorstand/organisation/-/blob/master/Dokumente/Satzung/Satzung.md" target="_blank">Satzung</a> zur Kenntnis genommen und stimme dieser zu.
+  </p>
+  <fieldset class="button">
+    <button type="submit">Absenden</button>
+  </fieldset>
+</form>
+<style>
+  h1 {
+    text-align: center;
+  }
+  main form {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  main form .strasse {
+    flex-grow: 5;
+    min-width: 190px;
+  }
+  main form .hausnr {
+    min-width: 110px;
+  }
+  main form .plz {
+    min-width: 110px;
+  }
+  main form .ort {
+    flex-grow: 3;
+    min-width: 190px;
+  }
+  main form input[placeholder][required] + label::after {
+    content: '*';
+  }
+  main form input[name=email2] {
+    display: none;
+  }
+  main .mitgliedsantrag.message {
+    display: none;
+    margin-bottom: 40px;
+    padding: 20px;
+    border: 2px #888 dashed;
+  }
+  main .mitgliedsantrag.message.success {
+    background: #b7e1cd;
+  }
+  main .mitgliedsantrag.message.error {
+    background: #e1b7b7;
+  }
+  main .mitgliedsantrag.message.error pre {
+    padding: 10px;
+    background: #fff;
+  }
+  main .mitgliedsantrag.message.pending {
+    border: none;
+    padding: 0;
+    margin: 0;
+    width: 0;
+    height: 0;
+  }
+  main .mitgliedsantrag.message.pending > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    box-sizing: border-box;
+    width: 100vw;
+    height: 100vh;
+    border: none;
+    background: rgba(0,0,0,.3);
+  }
+  input ~ .options {
+    position: absolute;
+    z-index: 10;
+    margin-top: 5px;
+    padding: 20px;
+    width: max-content;
+    background: #fff;
+    border: 2px #888 solid;
+    font-size: 20px;
+    transition: transform 300ms ease-out;
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  input ~ .options > div {
+    border-top: 1px #888 solid;
+    padding: 5px;
+    cursor: pointer;
+  }
+  input ~ .options > div:hover {
+    background: #eee;
+  }
+  input ~ .options > div:first-child {
+    border-top: none;
+  }
+  fieldset .unit {
+    font-size: 20px;
+  }
+  fieldset.beitrag {
+    width: 220px;
+  }
+  input#beitrag {
+    width: 200px;
+  }
+  input#beitrag ~ .options > div > .value {
+    display: inline-block;
+    width: 80px;
+  }
+  input#beitrag ~ .options > div > .description {
+    color: #888;
+  }
+</style>
+<script>
+  document.addEventListener('turbolinks:load', function() {
+    var $ = jQuery;
+    $('form.mitgliedsantrag #firma').off('change').on('change', function() {
+      if(this.value == "") {
+        $('form.mitgliedsantrag #art_ordentlich').attr('disabled', false);
+      } else {
+        $('form.mitgliedsantrag #art_ordentlich').attr('disabled', true);
+        $('form.mitgliedsantrag #art_foerdernd').click();
+      }
+    });
+    $('form.mitgliedsantrag input[name=art]').off('change').on('change', function() {
+      if(this.value == "fördernd") {
+        $('form.mitgliedsantrag #beitrag').attr('min', 1);
+        var $min = $('form.mitgliedsantrag fieldset.beitrag .options .min');
+        $min[0].dataset.value = 1;
+        $min.children('.value').html('1 €');
+        $min.children('.description').html('Bronze-Mitgliedschaft');
+      } else {
+        $('form.mitgliedsantrag #beitrag').attr('min', 1.25);
+        var $min = $('form.mitgliedsantrag fieldset.beitrag .options .min');
+        $min[0].dataset.value = 1.25;
+        $min.children('.value').html('1,25 €');
+        $min.children('.description').html('Basis-Mitgliedschaft');
+      }
+    });
+    $('form.mitgliedsantrag input ~ .options > div').off('click').on('click', function() {
+      $(this).parent().siblings('input').val(this.dataset.value);
+    });
+    $('form.mitgliedsantrag input').off('focusin').on('focusin', function() {
+      $(this).siblings('.options').css('transform', 'scaleY(1)');
+    });
+    $('form.mitgliedsantrag input').off('focusout').on('focusout', function() {
+      var options = $(this).siblings('.options');
+      setTimeout(function() {
+        $(options).css('transform', 'scaleY(0)');
+      }, 100);
+    });
+    $('form.mitgliedsantrag').off('submit').on('submit', function(event) {
+      event.preventDefault();
+      function objectifyForm(formArray) {
+        //serialize data function
+        var returnArray = {};
+        for (var i = 0; i < formArray.length; i++) {
+            returnArray[formArray[i]['name']] = formArray[i]['value'];
+        }
+        return returnArray;
+      }
+      var data = objectifyForm($(this).serializeArray());
+      $('.mitgliedsantrag.message.pending').show();
+      $.ajax('/mitgliedsantrag.php', {
+        cache: false,
+        contentType: 'json',
+        data: JSON.stringify(data),
+        dataType: 'json',
+        method: 'POST',
+        success: function() {
+          $('.mitgliedsantrag').hide();
+          $('.mitgliedsantrag.message.success').show();
+        },
+        error: function() {
+          delete data['email2'];
+          $('.mitgliedsantrag.message.error pre').html(JSON.stringify(data, null, 2));
+          $('.mitgliedsantrag.message').hide();
+          $('.mitgliedsantrag.message.error').show();
+        }
+      });
+    });
+  });
+</script>

@@ -1,0 +1,36 @@
+baseURL: https://freifunk-aachen.de
+languageCode: de-DE
+title: Freifunk Aachen
+
+params:
+  title: Freifunk Aachen
+  subtitle: Freies WLAN für Aachen, die StädteRegion und Umgebung
+  organization: Fördervereinigung für freie Netzwerke in der Region Aachen e.V. (F3N)
+  responsiveImg: [ 50,100,150,200,300,480,640,800,1400,1920,2880,3840  ]
+  logo: images/logo.svg
+  header: images/header-truss-antenna.jpg
+  dateFormat: 2. Januar 2006
+  calendarURL: https://www.googleapis.com/calendar/v3/calendars/ffnw.de_ivk780f7rit10vqvjr84t4j0jc@group.calendar.google.com/events?key=AIzaSyDQOAPtvICKv0-QlO4Tf6zg6E6o1jIaeDg&maxResults=3&orderBy=startTime&singleEvents=true
+  paginator:
+    adjacents: 2
+
+paginate: 5
+
+module:
+  imports:
+    - path: git.ffnw.de/ffnw-website/theme
+
+permalinks:
+  _posts: /blog/:year/:month/:title/
+
+related:
+  includeNewer: true
+  indices:
+  - name: keywords
+    weight: 100
+  - name: date
+    weight: 10
+  threshold: 80
+  toLower: true
+
+enableGitInfo: true
