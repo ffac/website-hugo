@@ -1,4 +1,4 @@
-module git.ffnw.de/ffnw-website/site
+module github.com/ffac/website-hugo
 
 go 1.16
 

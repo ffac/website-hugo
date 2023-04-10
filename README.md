@@ -14,3 +14,5 @@ hugo mod get git.ffnw.de/ffnw-website/theme@main
 
 Eine Preview kann mit `hugo serve` gestartet werden.
 Damit drafts auch gerendered werden wird `-D` beigefügt.
+
+Zum Build wird schlicht `hugo` ausgeführt, anschließend kann man den public folder durch einen Webserver bereitstellen.
